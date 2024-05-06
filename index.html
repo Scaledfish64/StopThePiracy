@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <body onload="loadPage()" style="margin:0;">
+    <div id="mainLoading">
+        <img id="loadingSkullIcon" img src="logo.png" alt="Skull Loading Icon">
+        <div id="loader"></div>
+    </div>  
+
+    <div style="display:none;" id="loaderDiv" class="animate-bottom">
+    <h2>Tada!</h2>
+    </div>
+    <script>
+        var myVar;
+
+        function loadPage() {
+            myVar = setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("mainLoading").style.display = "none";
+            document.getElementById("loaderDiv").style.display = "block";
+        }
+    </script>
+    </body>
+</html>
