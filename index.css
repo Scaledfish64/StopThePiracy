@@ -90,7 +90,7 @@
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: var(--red);
 }
 
 .HamburgerMenu {
@@ -117,4 +117,104 @@
     .HamburgerMenu {
         display: block;
     }
+}
+
+body {
+    height: 1234567890px;
+}
+
+html.lenis, html.lenis body {
+    height: auto;
+}
+  
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+  
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+  
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+  
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter.ttf');
+  }
+  
+  @import 'variables';
+  @import 'scaffolding';
+  
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 500px;
+    color: #000;
+    font-size: 24px;
+  }
+  #root {
+    display: flex;
+    width: fit-content;
+  }
+  #wrapper {
+    overflow-x: auto;
+    section {
+      width: 500px;
+    }
+  }
+  
+  #wrapper-mandatory {
+    overflow-y: auto;
+    height: 600px;
+  }
+  
+  #root-mandatory {
+    height: fit-content;
+  }
+
+.stickyDiv {
+    color: red;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    float: left;
+    width: 40%;
+    padding: 5%;
+}
+
+.stickyDivRight {
+    float: right;
+    width: 50%;
+}
+
+.stickyBox {
+    width: 90%;
+    padding: 5%;
+    color: white;
+    font-family: "Russo One";
+    font-size: 2vw;
+    word-break:break-all;
+}
+
+.stickyContainer {
+    display: inline-block;
+    width: 100%;
+}
+
+.title {
+    top: 50%;
+    bottom: 50%;
+    font-family: "Russo One";
+    font-size: 10vw;
+    float: center;
+    margin: 0;
+    text-align: left;
 }
