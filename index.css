@@ -41,7 +41,6 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Add animation to "page content" */
 .animate-bottom {
     position: relative;
     -webkit-animation-name: animatebottom;
@@ -63,4 +62,59 @@
 #loaderDiv {
     display: none;
     text-align: center;
+}
+
+.NavUl {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.NavLi {
+    float: left;
+}
+
+.NavLi a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Russo One";
+}
+
+.NavLi a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #04AA6D;
+}
+
+.HamburgerMenu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.HamburgerIcon {
+    font-size: x-large;
+    cursor: pointer;
+    float: left;
+    padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .NavUl {
+        display: none;
+    }
+
+    .HamburgerMenu {
+        display: block;
+    }
 }
