@@ -218,3 +218,11 @@ html.lenis, html.lenis body {
     margin: 0;
     text-align: left;
 }
+.stickyNumber {
+    top: 0;
+    font-family: "Russo One";
+    font-size: 10vw;
+    margin: 0;
+    text-align: left;
+    position: sticky;
+}
