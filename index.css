@@ -1,228 +1,274 @@
 :root {
-    --red: #800000;
-    --darkRed: #340000;
-    --black: #000000;
-    --hotRed: #ff2b2b;
+  --red: #800000;
+  --darkRed: #340000;
+  --black: #000000;
+  --hotRed: #ff2b2b;
 }
 
 #loadingSkullIcon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 120px;
-    height: 120px;
-    margin: -60px 0 0 -60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
 }
 
 #loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 120px;
-    height: 120px;
-    margin: -76px 0 0 -76px;
-    border-top: 16px solid var(--darkRed);
-    border-right: 16px solid rgba(0, 0, 0, 0);
-    border-bottom: 16px solid var(--red);
-    border-left: 16px solid rgba(0, 0, 0, 0);
-    border-radius: 50%;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border-top: 16px solid var(--darkRed);
+  border-right: 16px solid rgba(0, 0, 0, 0);
+  border-bottom: 16px solid var(--red);
+  border-left: 16px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
 }
 
 @-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
 }
 
-@keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0; opacity:1 }
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
 }
 
 #loaderDiv {
-    display: none;
-    text-align: center;
+  display: none;
+  text-align: center;
 }
 
 .NavUl {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .NavLi {
-    float: left;
+  float: left;
 }
 
 .NavLi a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: "Russo One";
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Russo One";
 }
 
 .NavLi a:hover:not(.active) {
-    background-color: #111;
+  background-color: #111;
 }
 
 .active {
-    background-color: var(--red);
+  background-color: var(--red);
 }
 
 .HamburgerMenu {
-    display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  position: fixed;
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  z-index: 10;
 }
 
 .HamburgerIcon {
-    font-size: x-large;
-    cursor: pointer;
-    float: left;
-    padding: 5px;
+  font-size: x-large;
+  cursor: pointer;
+  float: left;
+  padding: 5px;
 }
 
 @media screen and (max-width: 768px) {
-    .NavUl {
-        display: none;
-    }
+  .NavUl {
+    display: none;
+  }
 
-    .HamburgerMenu {
-        display: block;
-    }
+  .HamburgerMenu {
+    display: block;
+  }
 }
 
 body {
-    height: 1234567890px;
+  height: 1234567890px;
 }
 
-html.lenis, html.lenis body {
-    height: auto;
+html.lenis,
+html.lenis body {
+  height: auto;
 }
-  
+
 .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+  scroll-behavior: auto !important;
 }
-  
+
 .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
-  
+
 .lenis.lenis-stopped {
-    overflow: hidden;
+  overflow: hidden;
 }
-  
+
 .lenis.lenis-scrolling iframe {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter.ttf');
-  }
-  
-  @import 'variables';
-  @import 'scaffolding';
-  
+  font-family: "Inter";
+  src: url("../fonts/Inter.ttf");
+}
+
+@import "variables";
+@import "scaffolding";
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 500px;
+  color: #000;
+  font-size: 24px;
+}
+#root {
+  display: flex;
+  width: fit-content;
+}
+#wrapper {
+  overflow-x: auto;
   section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    height: 500px;
-    color: #000;
-    font-size: 24px;
+    width: 500px;
   }
-  #root {
-    display: flex;
-    width: fit-content;
-  }
-  #wrapper {
-    overflow-x: auto;
-    section {
-      width: 500px;
-    }
-  }
-  
-  #wrapper-mandatory {
-    overflow-y: auto;
-    height: 600px;
-  }
-  
-  #root-mandatory {
-    height: fit-content;
-  }
+}
+
+#wrapper-mandatory {
+  overflow-y: auto;
+  height: 600px;
+}
+
+#root-mandatory {
+  height: fit-content;
+}
 
 .stickyDiv {
-    color: red;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    float: left;
-    width: 40%;
-    padding: 5%;
+  color: red;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  float: left;
+  width: 40%;
+  padding: 5%;
 }
 
 .stickyDivRight {
-    float: right;
-    width: 50%;
+  float: right;
+  width: 50%;
 }
 
 .stickyBox {
-    width: 90%;
-    padding: 5%;
-    color: white;
-    font-family: "Russo One";
-    font-size: 2vw;
-    word-break:break-all;
+  width: 90%;
+  padding: 5%;
+  color: white;
+  font-family: "Russo One";
+  font-size: 2vw;
+  word-break: break-all;
 }
 
 .stickyContainer {
-    display: inline-block;
-    width: 100%;
+  display: inline-block;
+  width: 100%;
 }
 
 .title {
-    top: 50%;
-    bottom: 50%;
-    font-family: "Russo One";
-    font-size: 10vw;
-    float: center;
-    margin: 0;
-    text-align: left;
+  top: 50%;
+  bottom: 50%;
+  font-family: "Russo One";
+  font-size: 10vw;
+  float: center;
+  margin: 0;
+  text-align: left;
 }
 .stickyNumber {
-    top: 0;
-    font-family: "Russo One";
-    font-size: 10vw;
-    margin: 0;
-    text-align: left;
-    position: sticky;
+  top: 0;
+  font-family: "Russo One";
+  font-size: 10vw;
+  margin: 0;
+  text-align: left;
+  position: sticky;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateX(0);
+}
+
+h1 {
+  font-size: 4vw;
+  font-family: "Russo One";
+  color: white;
 }
