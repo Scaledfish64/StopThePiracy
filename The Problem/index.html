@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/logo.png">
-    <title>Causes of Piracy</title>
+    <title>The Problem</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/index.css">
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 </head>
-<body>
-    
-</body>
+
+<body onscroll="scrolled()" id="body">
+
+    <body onload="loadPage()" style="margin:0;">
+        <div id="mainLoading">
+            <img id="loadingSkullIcon" img src="/logo.png" alt="Skull Loading Icon">
+            <div id="loader"></div>
+        </div>
+
+        <div style="display:none;" id="loaderDiv" class="animate-bottom">
+            <ul class="NavUl">
+                <li class="NavLi"><a href="/">Home</a></li>
+                <li class="NavLi"><a class="active">The Problem</a></li>
+                <li class="NavLi"><a href="/Effects/">More Stats</a></li>
+                <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
+            </ul>
+            <div class="HamburgerMenu">
+                <div class="HamburgerIcon">&#9776;</div>
+            </div>
+            </br>
+            </br>
+            </br>
+            hi
+        </div>
+        </div>
+        <script>
+
+            var myVar;
+
+            function loadPage() {
+                myVar = setTimeout(showPage, 2000);
+            }
+
+            function showPage() {
+                document.getElementById("mainLoading").style.display = "none";
+                document.getElementById("loaderDiv").style.display = "block";
+            }
+
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+                direction: "vertical",
+                gestureDirection: "vertical",
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            function vw(percent) {
+                var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                return (percent * w) / 100;
+            }
+
+            function scrolled() {
+                if (lenis.scroll > 776 && 1750 > lenis.scroll) {
+                    document.getElementById("ScrollNumber").innerHTML = "</br>" + Math.round((((lenis.scroll - 776) / 1000)) * 37) + "%";
+                    document.getElementById("ScrollNumber").style.fontSize = (10 + (((lenis.scroll - 776) / 1000)) * 10) + "vw";
+                    document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                    document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                    document.getElementById("body").style.backgroundColor = "rgb(" + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + ")";
+                    console.log(true);
+                } else if (1750 < lenis.scroll) {
+                    document.getElementById("ScrollNumber").innerHTML = "</br>37%";
+                } else if (776 > lenis.scroll) {
+                    document.getElementById("ScrollNumber").innerHTML = "</br>0%";
+                }
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show");
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el))
+        </script>
+    </body>
+
 </html>

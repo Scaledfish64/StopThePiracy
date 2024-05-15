@@ -238,6 +238,7 @@ section {
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
   box-sizing: border-box;
+  border-radius: 2%;
 }
 
 /* Clear floats after the columns */
@@ -295,4 +296,37 @@ h1 {
   font-family: "Russo One";
   color: white;
   margin: 0;
+}
+
+.doubleColumn {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.doubleRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .doubleColumn {
+    width: 100%;
+  }
+}
+
+button {
+  background-color:var(--hotRed);
+  color: black;
+  border:none; 
+  border-radius:10px; 
+  padding:15px;
+  min-height:30px; 
+  min-width: 120px;
+  float: left;
+  font-family: "Russo One";
 }
