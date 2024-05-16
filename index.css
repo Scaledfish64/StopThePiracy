@@ -233,7 +233,6 @@ section {
   float: left;
   width: 33.33%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
   box-sizing: border-box;
   border-radius: 2%;
   color: white;
@@ -301,7 +300,6 @@ h1 {
   float: left;
   width: 40%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
@@ -360,4 +358,10 @@ button:hover {
   color: white;
   font-family: "Russo One";
   font-size: 26px
+}
+
+p{
+  color: white;
+  font-family: "Russo One";
+  font-size: 20px
 }
