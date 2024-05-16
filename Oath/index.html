@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <title>Take the Oath!</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/index.css">
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+</head>
+<body style="margin:0; background-color: black;">
+    <ul class="NavUl">
+        <li class="NavLi"><a  href="/">Home</a></li>
+        <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
+        <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
+        <li class="NavLi"><a class="active" href="/Oath/">Oath</a></li>
+    </ul>
+    </br>
+    </br>
+    </br>
+    <p class = "title" style = "color: white; font-size: 8vw">Take The Oath Now and <p  class = "title" style = "color: var(--red)">Stop The Piracy!</p></p>
+    <div class="row">
+        <div class="doubleColumn">
+            <div id="list-container">
+                <ul id="list"></ul>
+            </div>
+        </div>
+        <div class="doubleColumn">
+            <div class = "oathInfo">
+                <p>By signing this, you agree to:</p>
+                <ul>
+                    <li>Do something!</li>
+                    <li>Do something else!</li>
+                    <li>Do another thing!</li>
+                </ul>
+            </div>
+            <div id="form-container">
+                <form id="name-form">
+                    <label style = " width: 20%; border: none;" for="name">Name:</label>
+                    <input  style = "width: 50%" type="text" id="name" name="name" required>
+                    <button style = " width: 23%;" type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="thanks-message" style="display: none;">
+                <p>Thanks for submitting!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetchData();
+        // Function to fetch and display data from Google Sheets
+        function fetchData() {
+            fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQm9rz-28BHo98yBZx2fsOMgtuMjwv6uF7-XaP1A75RpgE2eNB9tiJnCukJ6InwAj2YTurNGI_3ZM5X/pubhtml')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    const rows = Array.from(doc.querySelectorAll('table tbody tr'));
+                    const listElement = document.getElementById('list');
+
+                    // Clear existing list content
+                    listElement.innerHTML = '';
+
+                    // Iterate over each row and display its content in the list
+                    rows.forEach(row => {
+                        const columns = Array.from(row.querySelectorAll('td'));
+                        const listItem = document.createElement('li');
+                        columns.forEach(column => {
+                            const data = column.textContent.trim();
+                            listItem.textContent += data + ' '; // Concatenate data with a separator
+                        });
+                        listElement.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Event listener for form submission
+        document.getElementById('name-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            const formData = new FormData(this); // Get form data
+            const name = formData.get('name'); // Get the value of the input field with name 'name'
+
+            writeToGoogleSheet(name); // Call the function to write data to Google Sheets
+            fetchData(); // Call the function to fetch and display updated data
+
+            // Hide the form after submission and show the thanks message
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('thanks-message').style.display = 'block';
+        });
+
+        // Function to write data to Google Sheets
+        function writeToGoogleSheet(name) {
+            const url = 'https://script.google.com/macros/s/AKfycbwrNE8c52gkQu57GveCn4K7udWrYh7jBfgY8iNzLvMSoQYjafYeeMchwme8KG5AjcEoSg/exec'; // Replace with the URL of your deployed web app
+
+            const data = {
+                name: name
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data).toString()
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Data added successfully.');
+                } else {
+                    console.error('Error adding data:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error adding data:', error));
+        }
+    </script>
+
+</body>
+</html>

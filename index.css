@@ -3,6 +3,7 @@
   --darkRed: #340000;
   --black: #000000;
   --hotRed: #ff2b2b;
+  --darkGray: #333;
 }
 
 #loadingSkullIcon {
@@ -89,7 +90,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: var(--darkGray);
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -123,7 +124,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: var(--darkGray);
   width: 100%;
   z-index: 10;
 }
@@ -143,10 +144,6 @@
   .HamburgerMenu {
     display: block;
   }
-}
-
-body {
-  height: 1234567890px;
 }
 
 html.lenis,
@@ -239,6 +236,8 @@ section {
   height: 300px; /* Should be removed. Only for demonstration */
   box-sizing: border-box;
   border-radius: 2%;
+  color: white;
+  font-family: "Russo One";
 }
 
 /* Clear floats after the columns */
@@ -319,14 +318,46 @@ h1 {
   }
 }
 
-button {
-  background-color:var(--hotRed);
+button, input, label {
+  border: 2px solid black;
+  background-color: white;
   color: black;
-  border:none; 
-  border-radius:10px; 
-  padding:15px;
-  min-height:30px; 
-  min-width: 120px;
-  float: left;
+  padding: 14px 28px; /* For button */
+  padding: 8px 10px; /* For input */
+  font-size: 16px; /* For button */
+  font-size: 26px; /* For input */
+  font-family: "Russo One"; 
+  vertical-align: middle; /* Align vertically */
+  outline: none;
+}
+
+
+button:hover {
+  background-color: var(--red);
+  box-shadow: #000;
+}
+
+#list-container {
+  height: 300px; /* Set a fixed height for the list container */
+  overflow: auto; /* Make the list scrollable */
+  padding: 10px; /* Add padding for spacing */
+  color: white;
   font-family: "Russo One";
+  border: 3px solid var(--red); /* Add border for better visibility */
+}
+
+#list {
+  list-style-type: none;
+}
+
+#thanks-message {
+  color: white;
+  font-family: "Russo One";
+  font-size: 26px
+}
+
+.oathInfo {
+  color: white;
+  font-family: "Russo One";
+  font-size: 26px
 }
