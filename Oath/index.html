@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,10 @@
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 
 </head>
+
 <body style="margin:0; background-color: black;">
     <ul class="NavUl">
-        <li class="NavLi"><a  href="/">Home</a></li>
+        <li class="NavLi"><a href="/">Home</a></li>
         <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
         <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
         <li class="NavLi"><a class="active" href="/Oath/">Oath</a></li>
@@ -23,7 +25,9 @@
     </br>
     </br>
     </br>
-    <p class = "title" style = "color: white; font-size: 8vw">Take The Oath Now and <p  class = "title" style = "color: var(--red)">Stop The Piracy!</p></p>
+    <p class="title" style="color: white; font-size: 8vw">Take The Oath Now and
+    <p class="title" style="color: var(--red)">Stop The Piracy!</p>
+    </p>
     <div class="row">
         <div class="doubleColumn">
             <div id="list-container">
@@ -31,19 +35,19 @@
             </div>
         </div>
         <div class="doubleColumn">
-            <div class = "oathInfo">
+            <div class="oathInfo">
                 <p>By signing this, you agree to:</p>
                 <ul>
-                    <li>Do something!</li>
-                    <li>Do something else!</li>
-                    <li>Do another thing!</li>
+                    <li>Swear to never <strong style="color: red;">Pirate!</strong></li>
+                    <li>Stop others from <strong style="color: red;">Pirating!</strong></li>
+                    <li>Report <strong style="color: red;">Pirated</strong> Software!</li>
                 </ul>
             </div>
             <div id="form-container">
                 <form id="name-form">
-                    <label style = " width: 20%; border: none;" for="name">Name:</label>
-                    <input  style = "width: 50%" type="text" id="name" name="name" required>
-                    <button style = " width: 23%;" type="submit">Submit</button>
+                    <label style=" width: 20%; border: none;" for="name">Name:</label>
+                    <input style="width: 50%" type="text" id="name" name="name" required>
+                    <button style=" width: 23%;" type="submit">Submit</button>
                 </form>
             </div>
             <div id="thanks-message" style="display: none;">
@@ -83,7 +87,7 @@
         }
 
         // Event listener for form submission
-        document.getElementById('name-form').addEventListener('submit', function(event) {
+        document.getElementById('name-form').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission behavior
 
             const formData = new FormData(this); // Get form data
@@ -112,16 +116,17 @@
                 },
                 body: new URLSearchParams(data).toString()
             })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Data added successfully.');
-                } else {
-                    console.error('Error adding data:', response.statusText);
-                }
-            })
-            .catch(error => console.error('Error adding data:', error));
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Data added successfully.');
+                    } else {
+                        console.error('Error adding data:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error adding data:', error));
         }
     </script>
 
 </body>
+
 </html>

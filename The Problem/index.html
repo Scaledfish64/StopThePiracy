@@ -14,94 +14,111 @@
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 </head>
 
-    <body onload="loadPage()" style="margin:0;">
-        <div id="mainLoading">
-            <img id="loadingSkullIcon" img src="/logo.png" alt="Skull Loading Icon">
-            <div id="loader"></div>
-        </div>
+<body onload="loadPage()" style="margin:0;">
+    <div id="mainLoading">
+        <img id="loadingSkullIcon" img src="/logo.png" alt="Skull Loading Icon">
+        <div id="loader"></div>
+    </div>
 
-        <div style="display:none;" id="loaderDiv" class="animate-bottom">
-            <ul class="NavUl">
-                <li class="NavLi"><a class="active" href="/">Home</a></li>
-                <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
-                <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
-                <li class="NavLi"><a href="/Oath/">Oath</a></li>
-            </ul>
-            <div class="HamburgerMenu">
-                <div class="HamburgerIcon">&#9776;</div>
+    <div style="display:none; background-color: black;" id="loaderDiv" class="animate-bottom">
+        <ul class="NavUl">
+            <li class="NavLi"><a class="active" href="/">Home</a></li>
+            <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
+            <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
+            <li class="NavLi"><a href="/Oath/">Oath</a></li>
+        </ul>
+        <div class="HamburgerMenu">
+            <div class="HamburgerIcon">&#9776;</div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <div class="doubleRow" style="align-self: center;">
+            <div class="doubleColumn" style="width: 48%;">
+                <p style = "text-align: left;">
+                    Software piracy is far too easy and makes buying the actual product look like a bad choice. Illegal
+                    websites make piracy simple and nearly impossible to turn down. When people are provided with an
+                    easy and free route, they always take it over the pricey one. It’s just natural to do so even if
+                    it’s morally wrong. But sometimes, it's diffrent. An avid software Pirater said this:
+                </p>
+                <p style = "text-align: left;">
+                    “If only it were available to buy legally and easily, I would” (Keep).
+                </p>
+                <p style = "text-align: left;">
+                    Sometimes, it’s not even laziness; it’s the only option. For example, when a console is officially
+                    pulled from the market, its games are also out of the market. If you want to play that game now, you
+                    would have to own both the game and the console which may cause more and more users to illegally
+                    play the game.
+                </p>
+
             </div>
-            </br>
-            </br>
-            </br>
-            <div class="doubleRow" style = "align-self: center;">
-                <div class="doubleColumn" style = "width: 48%;">one</div>
-                <div class="doubleColumn" style = "width: 48%;">two</div>
-            </div>
+            <div class="doubleColumn" style="width: 48%;">two</div>
         </div>
-        </div>
-        <script>
+    </div>
+    </div>
+    <script>
 
-            var myVar;
+        var myVar;
 
-            function loadPage() {
-                myVar = setTimeout(showPage, 2000);
-            }
+        function loadPage() {
+            myVar = setTimeout(showPage, 2000);
+        }
 
-            function showPage() {
-                document.getElementById("mainLoading").style.display = "none";
-                document.getElementById("loaderDiv").style.display = "block";
-            }
+        function showPage() {
+            document.getElementById("mainLoading").style.display = "none";
+            document.getElementById("loaderDiv").style.display = "block";
+        }
 
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-                direction: "vertical",
-                gestureDirection: "vertical",
-                smooth: true,
-                smoothTouch: false,
-                touchMultiplier: 2,
-            });
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+            direction: "vertical",
+            gestureDirection: "vertical",
+            smooth: true,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
 
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-
+        function raf(time) {
+            lenis.raf(time);
             requestAnimationFrame(raf);
+        }
 
-            function vw(percent) {
-                var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-                return (percent * w) / 100;
+        requestAnimationFrame(raf);
+
+        function vw(percent) {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            return (percent * w) / 100;
+        }
+
+        function scrolled() {
+            if (lenis.scroll > 776 && 1750 > lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>" + Math.round((((lenis.scroll - 776) / 1000)) * 37) + "%";
+                document.getElementById("ScrollNumber").style.fontSize = (10 + (((lenis.scroll - 776) / 1000)) * 10) + "vw";
+                document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                document.getElementById("body").style.backgroundColor = "rgb(" + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + ")";
+                console.log(true);
+            } else if (1750 < lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>37%";
+            } else if (776 > lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>0%";
             }
+        }
 
-            function scrolled() {
-                if (lenis.scroll > 776 && 1750 > lenis.scroll) {
-                    document.getElementById("ScrollNumber").innerHTML = "</br>" + Math.round((((lenis.scroll - 776) / 1000)) * 37) + "%";
-                    document.getElementById("ScrollNumber").style.fontSize = (10 + (((lenis.scroll - 776) / 1000)) * 10) + "vw";
-                    document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
-                    document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
-                    document.getElementById("body").style.backgroundColor = "rgb(" + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + ")";
-                    console.log(true);
-                } else if (1750 < lenis.scroll) {
-                    document.getElementById("ScrollNumber").innerHTML = "</br>37%";
-                } else if (776 > lenis.scroll) {
-                    document.getElementById("ScrollNumber").innerHTML = "</br>0%";
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
                 }
-            }
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    } else {
-                        entry.target.classList.remove("show");
-                    }
-                });
             });
+        });
 
-            const hiddenElements = document.querySelectorAll('.hidden');
-            hiddenElements.forEach((el) => observer.observe(el))
-        </script>
-    </body>
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el))
+    </script>
+</body>
 
 </html>
