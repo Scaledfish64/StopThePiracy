@@ -20,47 +20,28 @@
         <li class="NavLi"><a href="/">Home</a></li>
         <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
         <li class="NavLi"><a href="/Solutions/">Solutions</a></li>
-        <li class="NavLi"><a class="active" href="/Oath/">Oath</a></li>
-        <li class="NavLi"><a href="/WC">Works Cited</a></li>
+        <li class="NavLi"><a href="/Oath/">Oath</a></li>
+        <li class="NavLi"><a class="active" href="/WC">Works Cited</a></li>
     </ul>
     </br>
     </br>
     </br>
-    <p class="title" style="color: white; font-size: 8vw">Take The Oath Now and
-    <p class="title" style="color: var(--red)">Stop The Piracy!</p>
+
+    <p class = "WC">
+        <iframe style = "
+                width: 99%;
+                height: 600px;
+            "
+        src="https://docs.google.com/document/d/e/2PACX-1vRezf2IBKZzFs2L-3M1ilnslcIWuFLBqWl8nrdUqKITmZmgeuj2d9cQwJd7DxlYUBJZzOYqrXfxe-9y/pub?embedded=true"></iframe>
+        <iframe style = "
+            width: 99%;
+            height: 600px;
+        "
+        src="https://docs.google.com/document/d/e/2PACX-1vSgkB9wH-r1KNf84QP-RBgAe6dJwXeqdWC6ek6LyU03Lvmiq1SQI_647Qg_g2zQ0ZjjY2tGUoa95zO2/pub?embedded=true"></iframe>
     </p>
-    <div class="row">
-        <div class="doubleColumn">
-            <div class="oathInfo">
-                <p>By signing this, you agree to:</p>
-                <ul>
-                    <li>Swear to never <strong style="color: red;">Pirate!</strong></li>
-                    <li>Stop others from <strong style="color: red;">Pirating!</strong></li>
-                    <li>Report <strong style="color: red;">Pirated</strong> Software!</li>
-                    <li>Rally against big companies to make all games available so we don't have to <strong style="color: red;">Pirate</strong> Games!</li>
-                </ul>
-            </div>
-            <div id="form-container">
-                <form id="name-form">
-                    <label style=" width: 20%; border: none;" for="name">Name:</label>
-                    <input style="width: 50%" type="text" id="name" name="name" required>
-                    <button style=" width: 23%;" type="submit">Submit</button>
-                </form>
-            </div>
-            <div id="thanks-message" style="display: none;">
-                <p>Thanks for submitting! Please wait 5 minutes for the list to update</p>
-            </div>
-        </div>
-        <div class="doubleColumn">
-            <p>People Who already signed:</p>
-            <div id="list-container">
-                <ul id="list"></ul>
-            </div>
-        </div>
-    </div>
 
     <script>
-        fetchData();
+        //fetchData();
         // Function to fetch and display data from Google Sheets
         function fetchData() {
             fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQm9rz-28BHo98yBZx2fsOMgtuMjwv6uF7-XaP1A75RpgE2eNB9tiJnCukJ6InwAj2YTurNGI_3ZM5X/pubhtml')
@@ -96,8 +77,8 @@
             const formData = new FormData(this); // Get form data
             const name = formData.get('name'); // Get the value of the input field with name 'name'
 
-            writeToGoogleSheet(name); // Call the function to write data to Google Sheets
-            fetchData(); // Call the function to fetch and display updated data
+           // writeToGoogleSheet(name); // Call the function to write data to Google Sheets
+            //fetchData(); // Call the function to fetch and display updated data
 
             // Hide the form after submission and show the thanks message
             document.getElementById('form-container').style.display = 'none';

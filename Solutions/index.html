@@ -1,11 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/logo.png">
+    <title>The Problem</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Russo One' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/index.css">
+
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 </head>
-<body>
+
+<body onload="loadPage()" style="margin:0;">
+    <div id="mainLoading">
+        <img id="loadingSkullIcon" img src="/logo.png" alt="Skull Loading Icon">
+        <div id="loader"></div>
+    </div>
+
+    <div style="display:none; background-color: black;" id="loaderDiv" class="animate-bottom">
+        <ul class="NavUl">
+            <li class="NavLi"><a href="/">Home</a></li>
+            <li class="NavLi"><a href="/The Problem/">The Problem</a></li>
+            <li class="NavLi"><a class="active" href="/Solutions/">Solutions</a></li>
+            <li class="NavLi"><a href="/Oath/">Oath</a></li>
+            <li class="NavLi"><a href="/WC">Works Cited</a></li>
+        </ul>
+        <div class="HamburgerMenu">
+            <div class="HamburgerIcon">&#9776;</div>
+        </div>
+        </br>
+        </br>
+        </br>
+        <p class="title" style="color: var(--hotRed)">Solutions</p>
+        <hr>
+        <div class="doubleRow" style="align-self: center;">
+            <div class="doubleColumn" style="width: 48%;"><img  class = "hidden" src = "\xbox.jpg"style = "width: 80%; border:5px var(--hotRed) solid">
+            <p  class = "hidden" style = "font-size: 15px">Some of the few Xbox games that are coming back to future consoles!</p>
+            </div>
+            <div class="doubleColumn" style="width: 48%;">
+                <p class = "hidden"style = "text-align: left;">We talked about Xbox on the previous page and how they're sunsetting games. Xbox recently made an update on older games, and it speaks for itself:</p>
+                <p class = "hidden" style = "text-align: left; font-size: 25px; color: var(--hotRed); padding-left: 36px;">
+                    Get ready for FPS Boost, higher resolution, and Auto HDR from Xbox One, Xbox 360, and Original Xbox games. Experience game franchises from past generations and enjoy the games you own and love at no additional cost. For supported games, keep your game saves, add-ons, and hard-won achievements ("Xbox Backward Compatible").
+                </p>
+                <p  class = "hidden" style = "text-align: left;">
+                    Xbox is letting more and more games come to new consoles, and therefore making them more accessible. It's now our job to, instead of pirate these games, tell these big companies who locked older games, to unlock them. It's our job to make sure that veveryone has access to these games.
+                </p>
+
+         </div>
+
+        </div>
+        <div class="doubleRow" style="align-self: center;">
+            <div class="doubleColumn" style="width: 48%; position: sticky;">
+                <p  class = "hidden" style = "text-align: left;">
+                    Elie Wiesel, a haulocaust survivor, wrote the book <i>Night</i> as a memoir. In the Prelude to the book, he says, 
+                </p>
+                <p class = "hidden"  style = "padding-left: 36px; text-align: left; font-size: 25px; color: var(--hotRed);">
+                    &emsp;For the survivor who chooses to testify, it is clear: his duty is to bear 
+                    witness for the dead and for the living. He has no right to deprive future 
+                    generations of a past that belongs to our collective memory. To forget 
+                    would be not only dangerous but offensive; to forget the dead would be 
+                    akin to killing them a second time (Wiesel 15).
+                </p>
+                <p  class = "hidden" style = "text-align: left;">
+                    Elie tells us that we have to make sure that knowledge is available for everyone and while these are two completly different topics and we can't change the state of older games ourselves, we can rally together, and make big companies, who lock old software away from us, change that instead of illegally using software. Learn how can Stop The Piracy in the next page.
+                </p>
     
+            </div>
+            <div class="doubleColumn" style="width: 48%;"><img  class = "hidden" style = "width: 50%; border:5px var(--hotRed) solid"src = "\Night.png"></div>
+    
+        </div>
+        <div class="doubleRow">
+            <div class="doubleColumn">
+                <a href = "/The Problem/" ><button type="button" class="button" style = "float: left;">Backward</button></a>
+            </div>
+            <div class="doubleColumn" style="float: right;">
+                <a href = "/Oath" ><button type="button" class="button" style = "float: right;">Forward</button></a>
+            </div>
+          </div>
+    </div>
+    </div>
+    <script>
+
+        var myVar;
+
+        function loadPage() {
+            myVar = setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("mainLoading").style.display = "none";
+            document.getElementById("loaderDiv").style.display = "block";
+        }
+
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+            direction: "vertical",
+            gestureDirection: "vertical",
+            smooth: true,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        function vw(percent) {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            return (percent * w) / 100;
+        }
+
+        function scrolled() {
+            if (lenis.scroll > 776 && 1750 > lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>" + Math.round((((lenis.scroll - 776) / 1000)) * 37) + "%";
+                document.getElementById("ScrollNumber").style.fontSize = (10 + (((lenis.scroll - 776) / 1000)) * 10) + "vw";
+                document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                document.getElementById("ScrollNumber").style.color = "rgb(" + (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255)) + ",0,0)";
+                document.getElementById("body").style.backgroundColor = "rgb(" + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + "," + (255 - (10 + Math.round((((lenis.scroll - 776) / 1000)) * 255))) + ")";
+                console.log(true);
+            } else if (1750 < lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>37%";
+            } else if (776 > lenis.scroll) {
+                document.getElementById("ScrollNumber").innerHTML = "</br>0%";
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el))
+    </script>
 </body>
+
 </html>
